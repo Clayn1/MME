@@ -1,0 +1,90 @@
+<div id="navBar" class="collapse show">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #00004d">
+    <a class="navbar-brand" href="#"><img src="../../assets/images/logo.png" width="50" height="40"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse show navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownFile" role="button" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">
+            File
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownEdit">
+            <a class="dropdown-item" href="#"> New </a>
+            <a class="dropdown-item" href="#">Open</a>
+            <a class="dropdown-item" href="#">Save</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Settings</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEdit" role="button" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">
+            Edit
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownEdit">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownView" role="button" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">
+            View
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownView">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownHelp" role="button" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">
+            Help
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownHelp">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+      <button class="btn btn-outline-primary my-2 mr-sm-2">Sign In</button>
+      <button class="btn btn-outline-success my-2 my-sm-0">Register</button>
+    </div>
+  </nav>
+</div>
+<button *ngIf="visible" style="position: absolute; right: 20px" class="btn btn-outline-secondary m-0 p-0">
+  <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-bar-up"
+       data-toggle="collapse" data-target="#navBar" aria-controls="navBar"
+       (click)="visible = !visible"
+       xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd"
+          d="M11.354 5.854a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L8 3.207l2.646 2.647a.5.5 0 0 0 .708 0z"/>
+    <path fill-rule="evenodd"
+          d="M8 10a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-1 0v6.5a.5.5 0 0 0 .5.5zm-4.8 1.6c0-.22.18-.4.4-.4h8.8a.4.4 0 0 1 0 .8H3.6a.4.4 0 0 1-.4-.4z"/>
+  </svg>
+</button>
+<button *ngIf="!visible" style="position: absolute; right: 20px" class="btn btn-outline-secondary m-0 p-0">
+  <svg  width="1.5em" height="1.5em" viewBox="0 0 16 16"
+       class="bi bi-arrow-bar-down"
+       data-toggle="collapse" data-target="#navBar" aria-controls="navBar"
+       (click)="visible = !visible"
+       xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd"
+          d="M11.354 10.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L8 12.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+    <path fill-rule="evenodd"
+          d="M8 6a.5.5 0 0 1 .5.5V13a.5.5 0 0 1-1 0V6.5A.5.5 0 0 1 8 6zM2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+  </svg>
+</button>
