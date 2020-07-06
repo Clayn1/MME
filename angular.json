@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "MME"
+    }
+  },
+  "defaultProject": "MME",
+  "cli": {
+    "analytics": false
+  }
 }
