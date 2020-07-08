@@ -1,16 +1,18 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ModPreviewModel} from '../../models/ModPreviewModel';
+import {ModPreviewPageModel} from '../../models/ModPreviewPageModel';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ModPreviewService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  getModPreview(): Observable<ModPreviewModel[]> {
-    return this.http.get<ModPreviewModel[]>('https://jsonplaceholder.typicode.com/comments');
+  getModPreviews(): Observable<ModPreviewPageModel[]> {
+    return this.http.get<ModPreviewPageModel[]>('http://localhost:8081/previews');
   }
 }

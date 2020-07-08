@@ -1,6 +1,6 @@
-<div *ngFor="let modPreview of modPreviews">
-  <h1>{{modPreview.name}}</h1>
-  <h2>{{modPreview.body}}</h2>
+<div *ngFor="let modPreview of modPreviewPages[page].modPreviews">
+  <h1>{{modPreview.title}}</h1>
+  <h2>{{modPreview.description}}</h2>
 </div>
 <nav aria-label="Mod Browser Navigation">
   <ul class="pagination">
@@ -11,17 +11,17 @@
       </a>
     </li>
     <li class="page-item {{page == 1 ? 'active' : ''}}">
-      <a class="page-link" routerLink="/" [queryParams] = "{page: 1}">
+      <a class="page-link" (click)="changePage(1)">
         1
       </a>
     </li>
     <li class="page-item {{page == 2 ? 'active' : ''}}">
-      <a class="page-link" routerLink="/" [queryParams] = "{page: 2}">
+      <a class="page-link" (click)="changePage(2)">
         2
       </a>
     </li>
     <li class="page-item {{page == 3 ? 'active' : ''}}">
-      <a class="page-link" routerLink="/" [queryParams] = "{page: 3}">
+      <a class="page-link"  (click)="changePage(3)">
         3
       </a>
     </li>

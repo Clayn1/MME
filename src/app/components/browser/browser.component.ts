@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ModPreviewModel} from '../../../models/ModPreviewModel';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ModPreviewPageModel} from '../../../models/ModPreviewPageModel';
 
 @Component({
   selector: 'app-browser',
@@ -9,13 +10,15 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class BrowserComponent implements OnInit {
 
-  modPreviews: ModPreviewModel[];
+  modPreviewPages: ModPreviewPageModel[];
   page: number;
 
-  constructor(private activatedRoute: ActivatedRoute) {
-    const allModPreviews: ModPreviewModel[] = this.activatedRoute.snapshot.data.modPreviews;
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+    this.modPreviewPages = this.activatedRoute.snapshot.data.modPreviewPages;
     this.activatedRoute.queryParams.subscribe((queryParam) => { this.page = queryParam.page; });
-    this.modPreviews = allModPreviews.filter(((value, i) => i >= 30 * (this.page - 1) && i <= 30 * this.page ));
+  }
+  changePage(newPage: number): void{
+    this.router.navigate([], {relativeTo: this.activatedRoute, queryParams: {page: newPage}, queryParamsHandling: 'merge'})
   }
 
   ngOnInit(): void {

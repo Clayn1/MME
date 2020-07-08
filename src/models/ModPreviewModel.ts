@@ -1,6 +1,7 @@
 export class ModPreviewModel {
-  id: string;
-  name: string;
-  body: string;
-  postId: number;
+  id: number;
+  title: string;
+  description: string;
+  imgPath: string;
+  numberOfDownloads: number;
 }
