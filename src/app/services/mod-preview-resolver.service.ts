@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
-import {ModPreviewModel} from '../../models/ModPreviewModel';
 import {ModPreviewService} from './mod-preview.service';
 import {Observable} from 'rxjs';
 import {ModPreviewPageModel} from '../../models/ModPreviewPageModel';
@@ -14,6 +13,9 @@ export class ModPreviewResolverService implements Resolve<ModPreviewPageModel[]>
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ModPreviewPageModel[]> {
-    return this.modPreviewService.getModPreviews();
+    return this.modPreviewService.getModPreview(route.paramMap.get('page'),
+      route.queryParamMap.get('orderBy'),
+      route.queryParamMap.get('direction'),
+      route.queryParamMap.get('title'));
   }
 }

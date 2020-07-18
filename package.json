@@ -20,6 +20,8 @@
     "@angular/platform-browser-dynamic": "~10.0.0",
     "@angular/router": "~10.0.0",
     "bootstrap": "^4.5.0",
+    "bootstrap-icons": "^1.0.0-alpha5",
+    "ng": "0.0.0",
     "node": "^14.5.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

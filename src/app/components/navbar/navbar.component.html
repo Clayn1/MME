@@ -65,9 +65,9 @@
     </div>
   </nav>
 </div>
-<button *ngIf="visible" style="position: absolute; right: 20px" class="btn btn-outline-secondary m-0 p-0">
-  <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-bar-up"
-       data-toggle="collapse" data-target="#navBar" aria-controls="navBar"
+<button *ngIf="visible" style="position: absolute; right: 20px" class="btn btn-outline-info m-0 p-0">
+  <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-bar-up text-primary"
+       data-toggle="collapse" data-target="#navBar" aria-controls="navBar" fill="currentColor"
        (click)="visible = !visible"
        xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd"
@@ -76,9 +76,9 @@
           d="M8 10a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-1 0v6.5a.5.5 0 0 0 .5.5zm-4.8 1.6c0-.22.18-.4.4-.4h8.8a.4.4 0 0 1 0 .8H3.6a.4.4 0 0 1-.4-.4z"/>
   </svg>
 </button>
-<button *ngIf="!visible" style="position: absolute; right: 20px" class="btn btn-outline-secondary m-0 p-0">
+<button *ngIf="!visible" style="position: absolute; right: 20px" class="btn btn-outline-info m-0 p-0">
   <svg  width="1.5em" height="1.5em" viewBox="0 0 16 16"
-       class="bi bi-arrow-bar-down"
+       class="bi bi-arrow-bar-down text-primary" fill="currentColor"
        data-toggle="collapse" data-target="#navBar" aria-controls="navBar"
        (click)="visible = !visible"
        xmlns="http://www.w3.org/2000/svg">

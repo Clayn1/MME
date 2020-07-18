@@ -1,0 +1,12 @@
+<div style="background-color: cadetblue; width: 100%">
+  <input type="text" placeholder="Search By Name" class="m-2" value="{{inValue}}" (change)="findByTitle($event.target.value)">
+  <select name="orderBy" class="ml-5" (change)="navigateQuery($event.target.value)">
+    <option value="mPopular" [selected]="orderBy == null && direction == null">Most Popular</option>
+    <option value="lPopular">Least Popular</option>
+    <option value="newest">Newest</option>
+    <option value="oldest">Oldest</option>
+    <option value="az">A-Z</option>
+    <option value="za">Z-A</option>
+  </select>
+  <a class="btn btn-outline-secondary" (click)="clearAllQuery()">Clear</a>
+</div>

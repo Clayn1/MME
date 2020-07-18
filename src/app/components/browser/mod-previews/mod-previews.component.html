@@ -1,0 +1,29 @@
+<app-main-page-navbar></app-main-page-navbar>
+<app-filter-navbar></app-filter-navbar>
+<div class="justify-content-center d-flex flex-wrap">
+  <app-preview *ngFor="let modPreview of modPreviewsPage.modPreviews" [modPreview]="modPreview"
+               on-mouseover="popoverEv()"></app-preview>
+</div>
+
+<nav aria-label="Mod Browser Navigation" class="justify-content-center d-flex w-100 mt-5">
+  <ul class="pagination">
+    <li class="page-item {{currentPage == 1 ? 'disabled' : ''}}">
+      <a class="page-link" aria-label="Previous" routerLink="../1" queryParamsHandling="preserve">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li *ngFor="let page of pagesNumbers" class="page-item {{page == currentPage ? 'active' : ''}}">
+      <a class="page-link" routerLink="../{{page}}" queryParamsHandling="preserve">
+        {{page}}
+      </a>
+    </li>
+    <li class="page-item {{modPreviewsPage.last ? 'disabled' : ''}}">
+      <a class="page-link" aria-label="Next" routerLink="../{{modPreviewsPage.pagesCount}}" queryParamsHandling="preserve">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+
+  </ul>
+</nav>

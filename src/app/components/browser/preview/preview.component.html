@@ -1,0 +1,12 @@
+<div class="m-4 mod-card" style="width: 200px; word-break: normal; word-wrap: break-word;"
+     data-container="body" data-toggle="popover" data-placement="bottom"
+     [attr.data-template]='getTemplate(modPreview.numberOfDownloads)'
+     title="{{modPreview.title}}"
+     [attr.data-content]="modPreview.description"
+     data-trigger="hover" data-animation="true">
+  <a class="text-decoration-none" [routerLink]="['../../mods', modPreview.id]">
+    <img src="{{modPreview.imgPath}}" (error)="img.src = 'assets/images/no_preview.png'" width="200px" height="200px"
+         #img>
+    <h3>{{modPreview.title}}</h3>
+  </a>
+</div>

@@ -13,12 +13,15 @@ import {EditorModule} from './modules/editor/editor.module';
 import {NavbarProfileSectionComponent} from './components/navbar-profile-section/navbar-profile-section.component';
 import {MainPageNavbarComponent} from './components/main-page-navbar/main-page-navbar.component';
 import {BrowserComponent} from './components/browser/browser.component';
-import {ModPreviewResolverService} from './services/mod-preview-resolver.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ModBrowserModule} from './modules/mod-browser/mod-browser.module';
+import {ModPreviewsComponent} from './components/browser/mod-previews/mod-previews.component';
+import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
+import { PreviewComponent } from './components/browser/preview/preview.component';
+import { FilterNavbarComponent } from './components/filter-navbar/filter-navbar.component';
 
 const routes: Routes = [{
-  path: '',
+  path: 'main',
   component: MainPageComponent
 }, {
   path: 'editor',
@@ -28,7 +31,13 @@ const routes: Routes = [{
   path: 'mod-browser',
   component: BrowserComponent,
   loadChildren: () => import('./modules/mod-browser/mod-browser.module').then(m => m.ModBrowserModule),
-  resolve: {modPreviewPages: ModPreviewResolverService},
+}, {
+  path: '',
+  redirectTo: 'main',
+  pathMatch: 'full',
+}, {
+    path: '**',
+    component: PageNotFoundComponent
 }];
 
 @NgModule({
@@ -42,7 +51,11 @@ const routes: Routes = [{
     EntityEditorComponent,
     NavbarProfileSectionComponent,
     MainPageNavbarComponent,
-    BrowserComponent
+    BrowserComponent,
+    ModPreviewsComponent,
+    PageNotFoundComponent,
+    PreviewComponent,
+    FilterNavbarComponent
   ],
   imports: [
     BrowserModule,
