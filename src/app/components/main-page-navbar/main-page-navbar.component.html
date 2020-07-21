@@ -34,7 +34,7 @@
         </button>
         <div class="dropdown-menu my-2 my-lg-0 position-absolute p-3 bg-dark" aria-labelledby="searchMenuButton"
              style="top: 100%">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (change)="findByTitle($event.target.value)">
         </div>
       </div>
       <button class="btn btn-outline-primary my-2 mr-sm-2">Sign In</button>

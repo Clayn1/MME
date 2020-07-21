@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
-import {ModPreviewModel} from '../../../../models/ModPreviewModel';
+import {ModPreviewModel} from '../../../models/ModPreviewModel';
 import {Router} from '@angular/router';
 
 declare var $: any;
@@ -26,7 +26,7 @@ export class PreviewComponent implements OnInit {
       '<h3 class="popover-header"></h3>' +
       '<div class="popover-body"></div><hr class="m-0 p-0">' +
       '<div class="bg-light p-2">' +
-      '<span class="">' +
+      '<span class="numbers">' +
           numberOfDownloads +
       '  </span>' +
       '<img src="/assets/bootstrap-icons/download.svg" width="16" height="16" title="Number of downloads">' +

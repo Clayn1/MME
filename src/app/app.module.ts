@@ -12,13 +12,16 @@ import {EntityEditorComponent} from './components/editor/entity-editor/entity-ed
 import {EditorModule} from './modules/editor/editor.module';
 import {NavbarProfileSectionComponent} from './components/navbar-profile-section/navbar-profile-section.component';
 import {MainPageNavbarComponent} from './components/main-page-navbar/main-page-navbar.component';
-import {BrowserComponent} from './components/browser/browser.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ModBrowserModule} from './modules/mod-browser/mod-browser.module';
-import {ModPreviewsComponent} from './components/browser/mod-previews/mod-previews.component';
+import {ModPreviewsComponent} from './components/mod-previews/mod-previews.component';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
-import { PreviewComponent } from './components/browser/preview/preview.component';
+import { PreviewComponent } from './components/preview/preview.component';
 import { FilterNavbarComponent } from './components/filter-navbar/filter-navbar.component';
+import { ModPageComponent } from './components/mod-page/mod-page.component';
+import {AuthorizationInterceptor} from './services/auth/authorization.interceptor';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const routes: Routes = [{
   path: 'main',
@@ -29,9 +32,14 @@ const routes: Routes = [{
   loadChildren: () => import('./modules/editor/editor.module').then(m => m.EditorModule)
 }, {
   path: 'mod-browser',
-  component: BrowserComponent,
   loadChildren: () => import('./modules/mod-browser/mod-browser.module').then(m => m.ModBrowserModule),
 }, {
+  path: 'login',
+  component: LoginPageComponent
+}, {
+  path: 'mods/:id',
+  loadChildren: () => import('./modules/mod-page/mod-page.module').then(m => m.ModPageModule)
+},  {
   path: '',
   redirectTo: 'main',
   pathMatch: 'full',
@@ -51,20 +59,27 @@ const routes: Routes = [{
     EntityEditorComponent,
     NavbarProfileSectionComponent,
     MainPageNavbarComponent,
-    BrowserComponent,
     ModPreviewsComponent,
     PageNotFoundComponent,
     PreviewComponent,
-    FilterNavbarComponent
+    FilterNavbarComponent,
+    ModPageComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
     ModBrowserModule,
     EditorModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthorizationInterceptor,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

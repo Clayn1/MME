@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ModPreviewPageModel} from '../../../../models/ModPreviewPageModel';
+import {ModPreviewPageModel} from '../../../models/ModPreviewPageModel';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PreviewComponent} from '../preview/preview.component';
 

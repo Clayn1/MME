@@ -1,6 +1,6 @@
-<div style="background-color: cadetblue; width: 100%">
-  <input type="text" placeholder="Search By Name" class="m-2" value="{{inValue}}" (change)="findByTitle($event.target.value)">
-  <select name="orderBy" class="ml-5" (change)="navigateQuery($event.target.value)">
+<div style="background-color: cadetblue; width: 100%" class="py-1">
+  <input type="text" placeholder="Search By Name" class="m-2" value="{{inValue}}" (input)="findByTitle($event.target.value)">
+  <select name="orderBy" class="mx-5" (change)="navigateQuery($event.target.value)">
     <option value="mPopular" [selected]="orderBy == null && direction == null">Most Popular</option>
     <option value="lPopular">Least Popular</option>
     <option value="newest">Newest</option>

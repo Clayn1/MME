@@ -1,0 +1,6 @@
+<app-main-page-navbar></app-main-page-navbar>
+<img src="{{modPage.modPreview.imgPath}}" (error)="img.src = 'assets/images/no_preview.png'" width="200px" height="200px"
+     #img class="float-right m-5">
+<h1 class="title">{{modPage.modPreview.title}}</h1>
+<p class="download">{{modPage.downloadPath}}</p>
+<p class="description">{{modPage.fullDescription}}</p>

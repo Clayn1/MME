@@ -4,8 +4,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {BlockEditorComponent} from '../../components/editor/block-editor/block-editor.component';
 import {ItemEditorComponent} from '../../components/editor/item-editor/item-editor.component';
 import {EntityEditorComponent} from '../../components/editor/entity-editor/entity-editor.component';
-import {ModPreviewResolverService} from '../../services/mod-preview-resolver.service';
-import {ModPreviewsComponent} from '../../components/browser/mod-previews/mod-previews.component';
+import {ModPreviewResolverService} from '../../services/mod-preview/mod-preview-resolver.service';
+import {ModPreviewsComponent} from '../../components/mod-previews/mod-previews.component';
 
 const routes: Routes = [
   {
