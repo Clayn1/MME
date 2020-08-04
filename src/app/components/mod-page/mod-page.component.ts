@@ -13,6 +13,7 @@ export class ModPageComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {
     this.activatedRoute.params.subscribe((param) => {
       this.modPage = this.activatedRoute.snapshot.data.modPage;
+
     });
   }
 

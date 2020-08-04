@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthenticationService} from '../../services/auth/authentication.service';
 
 @Component({
   selector: 'app-navbar-profile-section',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar-profile-section.component.css']
 })
 export class NavbarProfileSectionComponent implements OnInit {
+  loggedIn: boolean;
+  username: string;
 
-  constructor() { }
+  constructor(private auth: AuthenticationService) {
+    auth.authSubscribe().subscribe(value => {
+      this.loggedIn = value;
+      if (!!value){
+        this.username = this.auth.getUsername();
+      }
+    });
+  }
+
+  logout(): void {
+    this.auth.logout();
+  }
 
   ngOnInit(): void {
   }
-
 }

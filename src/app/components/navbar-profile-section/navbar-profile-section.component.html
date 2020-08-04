@@ -1,1 +1,9 @@
-<p>navbar-profile-section works!</p>
+<div *ngIf="!loggedIn">
+  <button class="btn btn-outline-primary my-2 mr-sm-2" routerLink="/login">Sign In</button>
+  <button class="btn btn-outline-success my-2 my-sm-0" routerLink="/register">Register</button>
+</div>
+<div *ngIf="loggedIn">
+  <button class="btn btn-outline-success my-2 my-sm-0" routerLink="/users/{{username}}">{{username}}</button>
+  <button class="btn btn-outline-success my-2 my-sm-0" (click)="logout()">LOGOUT</button>
+</div>
+

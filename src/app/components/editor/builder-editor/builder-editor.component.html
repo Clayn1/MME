@@ -1,0 +1,19 @@
+<form class="form-signin" [formGroup]="form">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" id="title" class="form-control" formControlName="title" required autofocus>
+  </div>
+  <div class="form-group">
+    <label for="image">Image</label>
+    <input type="url" id="image" class="form-control" formControlName="imgPath">
+  </div>
+  <div class="form-group">
+    <label for="description">Short Description</label>
+    <input type="text" id="description" class="form-control" formControlName="description">
+  </div>
+  <div class="form-group">
+    <label for="fullDescription">Full Description</label>
+    <input type="text" id="fullDescription" class="form-control" formControlName="fullDescription">
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="postMod()">Submit</button>
+</form>

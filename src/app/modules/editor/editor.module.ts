@@ -5,6 +5,9 @@ import {BlockEditorComponent} from '../../components/editor/block-editor/block-e
 import {ItemEditorComponent} from '../../components/editor/item-editor/item-editor.component';
 import {EntityEditorComponent} from '../../components/editor/entity-editor/entity-editor.component';
 import {EditorComponent} from '../../components/editor/editor.component';
+import {BuilderEditorComponent} from '../../components/editor/builder-editor/builder-editor.component';
+import {EditorStartComponent} from '../../components/editor-start/editor-start.component';
+import {ProfileResolverService} from '../../services/profile/profile-resolver.service';
 
 const routes: Routes = [
   {
@@ -16,6 +19,9 @@ const routes: Routes = [
   }, {
     path: 'entity',
     component: EntityEditorComponent,
+  }, {
+    path: 'build',
+    component: BuilderEditorComponent
   }
 ];
 

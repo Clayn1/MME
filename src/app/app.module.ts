@@ -22,6 +22,12 @@ import { ModPageComponent } from './components/mod-page/mod-page.component';
 import {AuthorizationInterceptor} from './services/auth/authorization.interceptor';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import {ProfileResolverService} from './services/profile/profile-resolver.service';
+import { FilterSelectComponent } from './components/filter-navbar/filter-select/filter-select.component';
+import { BuilderEditorComponent } from './components/editor/builder-editor/builder-editor.component';
+import { EditorStartComponent } from './components/editor-start/editor-start.component';
+import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
 
 const routes: Routes = [{
   path: 'main',
@@ -37,9 +43,16 @@ const routes: Routes = [{
   path: 'login',
   component: LoginPageComponent
 }, {
+  path: 'register',
+  component: RegistrationPageComponent
+}, {
   path: 'mods/:id',
   loadChildren: () => import('./modules/mod-page/mod-page.module').then(m => m.ModPageModule)
-},  {
+}, {
+  path: 'users/:username',
+  component: ProfilePageComponent,
+  resolve: {profile: ProfileResolverService}
+}, {
   path: '',
   redirectTo: 'main',
   pathMatch: 'full',
@@ -64,7 +77,12 @@ const routes: Routes = [{
     PreviewComponent,
     FilterNavbarComponent,
     ModPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    ProfilePageComponent,
+    FilterSelectComponent,
+    BuilderEditorComponent,
+    EditorStartComponent,
+    RegistrationPageComponent
   ],
   imports: [
     BrowserModule,

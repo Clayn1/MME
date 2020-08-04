@@ -1,0 +1,20 @@
+<select name="orderBy" class="mx-5" (change)="navigateQuery($event.target.value)">
+  <option value="mPopular"
+          [selected]="(orderBy == null || orderBy == 'numberOfDownloads')
+            && (direction == null || direction == 'Desc')">Most Popular</option>
+  <option value="lPopular"
+          [selected]="(orderBy == null || orderBy == 'numberOfDownloads')
+            && direction == 'Asc'">Least Popular</option>
+  <option value="newest"
+          [selected]="orderBy == 'date'
+            && (direction == null || direction == 'Desc')">Newest</option>
+  <option value="oldest"
+          [selected]="orderBy == 'date'
+            && direction == 'Asc'">Oldest</option>
+  <option value="az"
+          [selected]="orderBy == 'title'
+            && direction == 'Asc'">A-Z</option>
+  <option value="za"
+          [selected]="orderBy == 'title'
+            && (direction == null || direction == 'Desc')">Z-A</option>
+</select>
